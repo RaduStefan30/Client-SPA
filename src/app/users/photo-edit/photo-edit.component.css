@@ -1,0 +1,13 @@
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+.nv-file-over{
+    border:dotted 3px green;
+}
+
+input[type=file]{
+    color:transparent;
+}

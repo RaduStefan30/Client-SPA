@@ -1,0 +1,22 @@
+strong{
+    margin-left: 5%;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+div{
+    margin:10px;
+}
+table {
+    margin-top: 15px;
+  }
+  
+  .img-circle {
+    max-height: 100px;
+    max-width: 100px;
+  }
+  
+  td {
+    vertical-align: middle;
+  }
+  

@@ -1,0 +1,63 @@
+<tabset class="user-tabset" [justified]="true">
+  <tab heading="View Attendance">
+<table class="table table-hover text-center">
+    <thead>
+      <tr>
+        <th scope="col">Course Name</th>
+        <th scope="col">Teacher</th>
+        <th scope="col ">Date</th>
+      </tr>
+    </thead>
+    <tbody  *ngFor="let attendance of attendance">
+      <tr>
+        <td>{{attendance?.id }}</td>
+        <td>{{attendance?.courseId}}</td>
+        <td>{{attendance?.date | date:'medium'}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="d-flex justify-content-center">
+  <pagination [boundaryLinks]="true"
+              previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"
+              [totalItems]="100"
+              [itemsPerPage]="pagination.itemsPerPage"
+              [(ngModel)]="pagination.currentPage"
+              (pageChanged)="pageChanged($event)"
+              [maxSize]="maxSize"
+             >
+</pagination>
+</div>
+</tab>
+<tab heading="Take Attendance">
+  <form #attendanceForm="ngForm" (ngSubmit)="takeAttendance()">
+    <div class="input-group">
+      <textarea style="border:solid 1px black" type="text"
+                [(ngModel)]="newAttendance.courseId"
+                name="content"
+                required
+                class="form-control input-sm"
+                placeholder="Course Id"></textarea>
+      <div class="input-group-append">
+        <button class="btn btn-primary" onclick="window.location.reload()">Take Attendance</button>
+
+        
+      </div>
+      
+    </div>
+    
+  </form>
+    <div id="app">
+      <div><video #video id="video" width="480" height="320" autoplay></video></div>
+      <div><button id="start" (click)="startCamera()">StartCamera</button></div>
+      <div><button id="snap" (click)="capture()">Snap Photo</button></div>
+      <canvas #canvas id="canvas" width="480" height="320"></canvas>
+      <ul>
+          <li *ngFor="let c of captures">
+              <img src="{{ c }}" height="320" />
+              
+      <div><button id="upload" (click)="uploadPhoto(c)">Upload Photo</button></div>
+          </li>
+      </ul>
+  </div>
+</tab>

@@ -1,0 +1,13 @@
+<div *ngFor="let course of courses">
+  {{course.courseName}}    {{course.faculty}}   {{course.specialization}}    {{course.city}}   {{course.country}}  
+
+</div>
+<div class="d-flex justify-content-center">
+  <pagination [boundaryLinks]="true"
+              [totalItems]="pagination.totalItems"
+              [itemsPerPage]="pagination.itemsPerPage"
+              [(ngModel)]="pagination.currentPage"
+              (pageChanged)="pageChanged($event)"
+            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+</pagination>
+</div>

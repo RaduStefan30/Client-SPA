@@ -1,0 +1,48 @@
+<div class="container-fluid ml-4 mt-2 md-4">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="text-center mt-4">
+            <strong>{{user?.firstName}} {{user?.lastName}}</strong>
+          </div>
+        <img class="card-img-top img-thumbnail" src="{{user?.photoUrl||'../../../assets/user.png'}}" alt="{{user?.firstName}} {{user?.lastName}}" />
+        <div class="card-body">
+
+          <div>
+            <strong>Faculty:</strong>
+            <p>{{user?.faculty}}</p>
+          </div>
+          <div>
+            <strong>Specialization:</strong>
+            <p>{{user?.specialization}}</p>
+          </div>
+
+          <div>
+            <strong>Group:</strong>
+            <p>{{user?.group}}</p>
+          </div>
+          <div>
+            <strong>Year:</strong>
+            <p>{{user?.year}}</p>
+          </div>
+          <div>
+            <strong>Last Active:</strong>
+            <p>{{user?.lastActive | date:'medium'}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="user-tabset">
+          <tab heading="Messages">
+            <h4>Messages</h4>
+            <app-user-messages [receiverId]="user?.id"></app-user-messages>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+  </div>
+</div>
